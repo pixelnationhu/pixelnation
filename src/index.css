@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Saját globális stílusok — a Tailwind rendszerben kell elhelyezni */
+@layer base {
+  body {
+    @apply bg-[#faf7f2] text-[#3b2a20] font-sans;
+  }
+}
