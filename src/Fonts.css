@@ -1,0 +1,17 @@
+@import './Fonts/brandfont.otf';
+
+@font-face {
+  font-family: 'BrandFont';
+  src: url('./Fonts/brandfont.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Ha több vastagság van, mindegyiket külön definiáld */
+@font-face {
+  font-family: "MyFont";
+  src: url("./Fonts/brandfont.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}

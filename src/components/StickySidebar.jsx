@@ -3,14 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import "../App.css";
+import { Home, FolderKanban, PenTool, User, Gift, Mail } from "lucide-react";
+
 
 const menuItems = [
-  { name: "Főoldal", path: "/", img: "/icons/menu.png" },
-  { name: "Projektek", path: "/projektek", img: "/icons/menu.png" },
-  { name: "Blog", path: "/blog", img: "/icons/blog.png" },
-  { name: "Rólam", path: "/rolam", img: "/icons/menu.png" },
-  { name: "Freebies", path: "/freebies", img: "/icons/freebies.png" },
-  { name: "Kapcsolat", path: "/kapcsolat", img: "/icons/menu.png" },
+  { name: "Főoldal", path: "/", icon: Home },
+  { name: "Projektek", path: "/projektek", icon: FolderKanban },
+  { name: "Blog", path: "/blog", icon: PenTool },
+  { name: "Rólam", path: "/rolam", icon: User },
+  { name: "Freebies", path: "/freebies", icon: Gift },
+  { name: "Kapcsolat", path: "/kapcsolat", icon: Mail },
 ];
 
 export default function StickySidebar() {
@@ -50,12 +52,10 @@ export default function StickySidebar() {
       aria-label="Oldal menü"
     >
       <Link to="/" className="mb-2 text-center">
-        <div className="text-sm font-semibold tracking-tight text-primary">
+        <div className="text-4xl font-[BrandFont] text-4xl text-sm tracking-tight text-primary">
           pixelnation.hu
         </div>
-        <div className="text-xs text-muted -mt-0.5">
-          Creative Webdesigner
-        </div>
+        <div className="text-xs text-muted -mt-0.5"></div>
       </Link>
 
       <nav
@@ -63,27 +63,16 @@ export default function StickySidebar() {
         className="mt-4 flex flex-col items-center gap-4 relative"
         aria-label="Főmenü"
       >
+        {/* az aktív háttér highlightot teljesen kikapcsoltuk */}
         <motion.div
-          className="absolute left-[-15px] w-40 h-20 rounded-full z-0"
-          style={{
-            backgroundColor: darkMode
-              ? "var(--color-bg)"
-              : "var(--color-bg)",
-          }}
-          animate={{
-            top: activeIndex * itemHeight,
-            scale: 1.05,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 10,
-            mass: 1.2,
-          }}
+          className="absolute left-[-9999px]"
+          animate={{ opacity: 0 }}
         />
 
         {menuItems.map((item, index) => {
           const active = index === activeIndex;
+          const Icon = item.icon;
+
           return (
             <Link
               key={item.path}
@@ -91,15 +80,23 @@ export default function StickySidebar() {
               className="relative w-full flex flex-col items-center justify-center group z-10"
               aria-current={active ? "page" : undefined}
             >
-              <img
-                src={item.img}
-                alt={item.name}
-                className={`w-12 h-12 transform hover:scale-110 rounded-full border-2 transition-transform duration-300 ghost-float ${
-                  active
-                    ? "scale-105 border-primary shadow-[0_0_10px_var(--color-accent)]"
-                    : "border-transparent group-hover:scale-105"
-                }`}
-              />
+              <div
+  className={`flex items-center justify-center w-12 h-12 rounded-full border-[0px] transition-all duration-300 ${
+    active
+      ? "scale-105 border-primary shadow-md shadow-neutral-300 dark:shadow-neutral-800"
+      : "border-transparent group-hover:scale-105 group-hover:shadow-sm group-hover:shadow-neutral-300"
+  }`}
+>
+  <Icon
+    size={26}
+    className={`transition-colors duration-200 ${
+      active
+        ? "text-primary"
+        : "text-muted group-hover:text-primary"
+    }`}
+  />
+</div>
+
               <span
                 className={`mt-2 text-xs transition-colors duration-200 ${
                   active ? "text-primary font-semibold" : "text-muted"

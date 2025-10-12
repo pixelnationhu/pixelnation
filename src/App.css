@@ -3,6 +3,7 @@
    =========================================================== */
 
 /* --- Gombok --- */
+
 .btn {
   @apply bg-primary text-white font-semibold px-4 py-2 rounded-md transition-all duration-300;
 }
@@ -40,3 +41,78 @@ a:hover {
 .dark ::-webkit-scrollbar-track {
   background: #0f1413;
 }
+
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(216, 167, 177, 0.4); }
+  50% { box-shadow: 0 0 10px rgba(216, 167, 177, 0.6); }
+}
+/* index.css vagy App.css végére */
+b, strong {
+  font-weight: 600;
+  color: #D8A7B1;
+  white-space: nowrap;
+}
+
+/* 🌙 Dark mode szín */
+html.dark b,
+html.dark strong {
+  color: #9a6b9e;
+  font-weight: 700;
+  box-shadow: none!important;
+  
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    #a2789d,
+    #faf7f2,
+    #c38eb4
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* === text-gradient that moves opposite to the hero background === */
+@keyframes gradientText {
+  0%   { background-position: 100% 50%; }
+  50%  { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* use on the H1 (or any inline heading) */
+.hero-text {
+  /* make the gradient the visible "color" of the text */
+  color: transparent;                         /* fallback for non-supporting UAs */
+  background: linear-gradient(
+    to left,
+    #c38eb4 0%,
+    #2a2430 50%,
+    #d8a7b1 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text; /* Safari/Chrome */
+  background-clip: text;         /* modern browsers */
+  -webkit-text-fill-color: transparent; /* needed on some WebKit builds */
+  animation: gradientText 12s ease infinite; /* moves opposite direction */
+  transition: color 0.3s ease;
+  display: inline-block; /* keeps nice wrapping behavior */
+
+}
+
+/* Optional: ensure accessibility fallback on very old browsers */
+.hero-text-fallback {
+  color: #3a3236; /* pick a readable fallback */
+}
+
