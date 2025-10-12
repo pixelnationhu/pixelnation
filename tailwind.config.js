@@ -1,17 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
+    "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-     extend: {
+    extend: {
       colors: {
-        brandRed: "#d7090d",
-        aqua: "#a2cbcd",
-        paper: "#f7f7f7",
-        fog: "#e4e4e4",
-        slateTea: "#96adb5",
-        softMint: "#afc4c9",
+        bg: "var(--color-bg)",
+        surface: "var(--color-surface)",
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
+        text: "var(--color-text)",
+        muted: "var(--color-muted)",
       },
       fontFamily: {
         serifFancy: ["Cormorant Garamond", "serif"],

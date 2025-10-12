@@ -31,14 +31,14 @@ export default function Contact() {
 
   return (
     <section className="py-12 max-w-xl mx-auto">
-      <h1 className="text-3xl font-serifFancy text-brandRed">Kapcsolat</h1>
-      <p className="mt-2 text-[#5A4028]/70">
+      <h1 className="text-3xl font-serif text-center mb-8">Kapcsolat</h1>
+      <p className="mt-4 text-sm text-[#5A4028]/80 dark:text-[#E8E6E3]/90 max-w-xl">
         Írj nekem bátran, ha szeretnél együtt dolgozni vagy kérdésed van!
       </p>
 
       <form ref={form} onSubmit={sendEmail} className="mt-6 space-y-4">
         <div>
-          <label className="block text-sm text-[#5A4028]/80 mb-1">Név</label>
+          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Név</label>
           <input
             type="text"
             name="user_name"
@@ -48,7 +48,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label className="block text-sm text-[#5A4028]/80 mb-1">Email</label>
+          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Email</label>
           <input
             type="email"
             name="user_email"
@@ -58,7 +58,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label className="block text-sm text-[#5A4028]/80 mb-1">Üzenet</label>
+          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Üzenet</label>
           <textarea
             name="message"
             required
@@ -69,7 +69,7 @@ export default function Contact() {
 
         <button
           type="submit"
-          className="bg-brandRed text-white px-6 py-2 rounded-lg hover:bg-red-700 transition"
+          className="px-4 py-2 rounded bg-brandRed text-white dark:bg-[#6B8E8E] dark:hover:bg-[#5C7A7A] dark:text-white transition duration-300 rounded px-4 py-2 text-white hover:bg-[#a60e0e] transition-colors duration-300"
         >
           Üzenet küldése
         </button>

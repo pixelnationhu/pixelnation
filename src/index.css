@@ -2,9 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Saját globális stílusok — a Tailwind rendszerben kell elhelyezni */
+/* 🎨 Brand Colors */
+:root {
+  --color-bg: #faf7f2;
+  --color-surface: #ffffff;
+  --color-primary: #d8a7b1;
+  --color-secondary: #c38eb4;
+  --color-accent: #a2789d;
+  --color-text: #3b2a20;
+  --color-muted: #b8a9a1;
+}
+
+/* 🌙 Dark Mode */
+.dark {
+  --color-bg: #1f1a20;
+  --color-surface: #2a2430;
+  --color-primary: #b88bb2;
+  --color-secondary: #a2789d;
+  --color-accent: #d8a7b1;
+  --color-text: #f4ecf7;
+  --color-muted: #857080;
+}
+
 @layer base {
   body {
-    @apply bg-[#faf7f2] text-[#3b2a20] font-sans;
+    @apply font-sans transition-colors duration-500;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
+}
+
+/* Grain Overlay */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("https://img.freepik.com/free-photo/white-rough-texture-pattern_1194-6701.jpg");
+  background-size: cover;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+/* Global Transitions */
+* {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }

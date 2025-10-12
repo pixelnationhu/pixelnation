@@ -9,28 +9,38 @@ import BlogPost from "./pages/BlogPost";
 import Rolam from "./pages/Rolam";
 import Freebies from "./pages/Freebies";
 import Contact from "./pages/Contact";
+import { useButtonSound } from "./hooks/useButtonSound";
+import BrandColorGuide from "./components/BrandColorGuide.jsx";
 
 import MainLayout from "./components/MainLayout";
 
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Minden oldal a MainLayout-ban jelenik meg */}
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/projektek" element={<Projects />} />
-          <Route path="/projektek/:id" element={<ProjectDetail />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/rolam" element={<Rolam />} />
-          <Route path="/freebies" element={<Freebies />} />
-          <Route path="/kapcsolat" element={<Contact />} />
-        </Route>
 
-        {/* Hibás URL → vissza főoldalra */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+// ⬇️ FONTOS: ezt importáld be
+import { ThemeProvider } from "./context/ThemeContext.jsx";
+
+export default function App() {
+  useButtonSound();
+
+  return (
+    // ⬇️ Itt csomagold körbe a ThemeProvider-rel
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projektek" element={<Projects />} />
+            <Route path="/projektek/:id" element={<ProjectDetail />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/rolam" element={<Rolam />} />
+            <Route path="/freebies" element={<Freebies />} />
+            <Route path="/kapcsolat" element={<Contact />} />
+             {/* ⬇️ ÚJ brand color guide oldal */}
+    <Route path="/brand-guide" element={<BrandColorGuide />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }

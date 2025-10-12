@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { client, urlFor } from "../lib/sanityClient";
-import BlockContent from "@sanity/block-content-to-react";
+import { PortableText } from '@portabletext/react';
+
 
 export default function BlogPost() {
   const { id } = useParams(); // slug értéke
@@ -41,11 +42,24 @@ export default function BlogPost() {
         />
       )}
 
-      <BlockContent
-        blocks={post.body}
-        projectId="oly226lgl"
-        dataset="production"
-      />
+      <PortableText
+  value={post.body}
+  components={{
+    types: {
+      image: ({ value }) => (
+        <img src={value.asset?.url} alt={value.alt || ""} />
+      ),
+    },
+    marks: {
+      link: ({ children, value }) => (
+        <a href={value.href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      ),
+    },
+  }}
+/>
+
     </article>
   );
 }

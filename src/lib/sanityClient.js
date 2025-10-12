@@ -1,11 +1,11 @@
-import sanityClient from "@sanity/client";
+import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
-export const client = sanityClient({
-  projectId: "zdecxp7h", // <-- EZ a te projekted ID-ja
+export const client = createClient({
+  projectId: "zdecxp7h", // <-- ez jó, maradjon így!
   dataset: "production",
   apiVersion: "2023-10-10",
-  useCdn: false, // <-- FONTOS: állítsd false-ra!
+  useCdn: false, // ez is rendben van
 });
 
 const builder = imageUrlBuilder(client);
