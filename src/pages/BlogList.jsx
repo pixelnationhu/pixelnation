@@ -7,17 +7,18 @@ export default function BlogList() {
 
   useEffect(() => {
     client
-      .fetch(
-        `*[_type == "blog"] | order(_createdAt desc){
-        _id,
-        title,
-        slug,
-        excerpt,
-        mainImage
-      }`
-      )
-      .then(setPosts)
-      .catch(console.error);
+  .fetch(
+    `*[_type == "blog"] | order(_createdAt desc){
+      _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      mainImage
+    }`
+  )
+  .then(setPosts)
+  .catch(console.error);
+
   }, []);
 
   return (
@@ -39,14 +40,19 @@ export default function BlogList() {
 </div>
 
             <h2 className="font-semibold">{p.title}</h2>
-            <p className="text-sm text-[#5A4028]/70 dark:text-[#E8E6E3]/80">{p.excerpt}</p>
+<p className="transition-colors duration-500 hero-text mt-1 text-[1rem] leading-1 tracking-wide text-muted max-w-2xl">
+  {p.excerpt}
+</p>
 
-            <Link
-              to={`/blog/${p.slug.current}`}
-              className="px-3 py-0.5 rounded bg-primary text-surface hover:bg-accent transition duration-300"
-            >
-              Tovább olvasom →
-            </Link>
+<div className="mt-3">
+  <Link
+    to={`/blog/${p.slug}`}
+    className="px-3 py-1 bg-primary text-surface hover:bg-accent transition duration-300 rounded text-sm inline-block"
+  >
+    Tovább olvasom →
+  </Link>
+</div>
+
           </article>
         ))}
       </div>

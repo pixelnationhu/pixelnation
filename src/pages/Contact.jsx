@@ -38,7 +38,7 @@ export default function Contact() {
 
       <form ref={form} onSubmit={sendEmail} className="mt-6 space-y-4">
         <div>
-          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Név</label>
+          <label className="px-4 py-2 rounded bg-primary text-surface hover:bg-accent transition duration-300">Hogy hívnak?</label>
           <input
             type="text"
             name="user_name"
@@ -48,7 +48,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Email</label>
+          <label className="px-4 py-2 rounded bg-primary text-surface hover:bg-accent transition duration-300">Mi az email címed?</label>
           <input
             type="email"
             name="user_email"
@@ -58,7 +58,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <label className="px-4 py-2 rounded border border-[#3b2a20]/20 dark:border-[#E8E6E3]/30 bg-white dark:bg-[#2A3C3C] text-[#3b2a20] dark:text-[#E8E6E3] hover:bg-[#f9f4ef] dark:hover:bg-[#375E5D] transition-colors duration-300">Üzenet</label>
+          <label className="px-4 py-2 rounded bg-primary text-surface hover:bg-accent transition duration-300">Üzenet</label>
           <textarea
             name="message"
             required
@@ -69,7 +69,7 @@ export default function Contact() {
 
         <button
           type="submit"
-          className="px-4 py-2 rounded bg-brandRed text-white dark:bg-[#6B8E8E] dark:hover:bg-[#5C7A7A] dark:text-white transition duration-300 rounded px-4 py-2 text-white hover:bg-[#a60e0e] transition-colors duration-300"
+          className="px-4 py-2 rounded bg-primary text-surface hover:bg-accent transition duration-300"
         >
           Üzenet küldése
         </button>

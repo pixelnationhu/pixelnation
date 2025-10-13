@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export function useButtonSound() {
   useEffect(() => {
-    const audio = new Audio("/sounds/sound.mp3");
+    const audio = new Audio("/Sounds/sound.mp3");
 
     const playSound = (e) => {
       // Csak gombokra, linkekre

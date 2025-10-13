@@ -83,6 +83,18 @@ html.dark strong {
   background-size: 300% 300%;
   animation: gradientMove 12s ease infinite;
 }
+/* === Dark mód verzió === */
+.dark .hero-gradient {
+  background: linear-gradient(
+    to right,
+    #2a2430,
+    #857080,
+    #a2789d
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
 
 /* === text-gradient that moves opposite to the hero background === */
 @keyframes gradientText {
@@ -116,3 +128,15 @@ html.dark strong {
   color: #3a3236; /* pick a readable fallback */
 }
 
+
+@font-face {
+  font-family: "TanNimbus";
+  src: url("../public/fonts/tan-nimbus.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}

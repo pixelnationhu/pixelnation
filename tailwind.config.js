@@ -19,6 +19,7 @@ module.exports = {
       fontFamily: {
         serifFancy: ["Cormorant Garamond", "serif"],
         sansSoft: ["Inter", "system-ui", "sans-serif"],
+        tan: ["TanNimbus", "serif"], // 👈 EZT ADD HOZZÁ
       },
     },
   },
