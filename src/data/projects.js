@@ -6,7 +6,7 @@ export const projects = [
     title: "Portfólió weboldal",
     short: "Egy modern személyes portfólió Tailwinddel és Reacttel.",
     long: "Ez a projekt egy egyedi portfólióoldal, amelyben React és TailwindCSS technológiákat használtam. A cél az volt, hogy egy letisztult, mégis karakteres személyes márka szülessen.",
-    image: "https://i.pinimg.com/1200x/66/1f/8d/661f8dfe4ab141b1a59d5b5282ab136b.jpg",
+    image: "https://i.ibb.co/SXmx3nL8/Balogh-s-Partners-UIUX-Front-End.png",
     live: "https://example.com",
   },
   {

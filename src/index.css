@@ -2,28 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🎨 Brand Colors */
+/* ===========================================================
+   🌿 Forest Mist Theme
+   =========================================================== */
+
 :root {
-  --color-bg: #faf7f2;
-  --color-surface: #ffffff;
-  --color-primary: #d8a7b1;
-  --color-secondary: #c38eb4;
-  --color-accent: #a2789d;
-  --color-text: #3b2a20;
-  --color-muted: #b8a9a1;
+  --color-bg: #2A2924;         /* mély sötét háttér */
+  --color-surface: #37362F;    /* melegebb szürke, természetes árnyalat */
+  --color-primary: #D5CCAB;    /* világos beige főszín */
+  --color-secondary: #B7B18E;  /* világosított grullo */
+  --color-accent: #A49F7D;     /* olívás fény */
+  --color-dark: #DCD7C1;       /* világosított olive */
+  --color-text: #F4F3E8;       /* törtfehér szöveg */
+  --color-muted: #c0b8a5;      /* halvány bézses szürke mellékszövegekhez */
 }
 
-/* 🌙 Dark Mode */
+/* 🌙 Dark mód */
 .dark {
-  --color-bg: #1f1a20;
-  --color-surface: #2a2430;
-  --color-primary: #b88bb2;
-  --color-secondary: #a2789d;
-  --color-accent: #d8a7b1;
-  --color-text: #f4ecf7;
-  --color-muted: #857080;
+   --color-bg: #F4F1EA;         /* meleg, törtfehér háttér */
+  --color-surface: #E5E0D4;    /* enyhén sötétebb felület */
+  --color-primary: #6A6352;    /* Boy Red – elegáns barnás főszín */
+  --color-secondary: #A3A289;  /* Grullo – puha kiegészítő tónus */
+  --color-accent: #878568;     /* Camouflage Green – természetes árnyalat */
+  --color-dark: #505143;       /* Olive Drab – kontrasztos szöveghez */
+  --color-text: #2A2924;       /* Sötétebb fő szöveg */
+  --color-muted: #6F6C5F;      /* Halvány kísérő szöveg */
 }
 
+
+/* ===========================================================
+   🌾 Alap stílusok
+   =========================================================== */
 @layer base {
   body {
     @apply font-sans transition-colors duration-500;
@@ -31,21 +40,148 @@
     color: var(--color-text);
   }
 }
+k
 
-/* Grain Overlay */
-html::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("https://img.freepik.com/free-photo/white-rough-texture-pattern_1194-6701.jpg");
-  background-size: cover;
-  opacity: 0.07;
-  mix-blend-mode: overlay;
-  z-index: 0;
-}
-
-/* Global Transitions */
+/* Globális átmenetek */
 * {
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  box-sizing: border-box;
+}
+
+/* Mobil scroll fix */
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+
+b, strong {
+  font-weight: 600;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+
+html.dark b,
+html.dark strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --- Fejlécek és kiemelések --- */
+h1, h2, h3, h4 {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* --- Árnyék finomítások --- */
+.shadow-lg {
+  box-shadow: 0 12px 30px rgba(31, 43, 33, 0.08);
+}
+.shadow-xl {
+  box-shadow: 0 20px 45px rgba(31, 43, 33, 0.12);
+}
+
+/* ===========================================================
+   🌿 Komponensek
+   =========================================================== */
+
+/* --- Gombok --- */
+.btn {
+  @apply bg-primary text-white font-semibold px-4 py-2 rounded-md transition-all duration-300;
+}
+.btn:hover {
+  @apply scale-105 bg-secondary;
+}
+
+/* --- Kártyák --- */
+.card {
+  @apply bg-surface dark:bg-bg shadow-md rounded-xl p-4 transition-colors duration-500;
+}
+
+/* --- Linkek --- */
+a {
+  @apply text-primary transition-colors duration-300;
+}
+a:hover {
+  @apply text-secondary;
+}
+
+/* ===========================================================
+   ✨ Speciális hatások
+   =========================================================== */
+
+/* Finom "lélegző" pulzálás */
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(64,99,70, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(133,153,112, 0.6); }
+}
+
+/* --- Mozgó háttérgradiens --- */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero szekció mozgó háttér */
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    #859970,
+    #f5f1de,
+    #406346
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 14s ease infinite;
+}
+
+/* Dark mód verzió */
+.dark .hero-gradient {
+  background: linear-gradient(
+    to right,
+    #243228,
+    #406346,
+    #5d7c62
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 14s ease infinite;
+}
+
+/* --- Animált szöveggradiens --- */
+@keyframes gradientText {
+  0%   { background-position: 100% 50%; }
+  50%  { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero-text {
+  color: transparent;
+  background: linear-gradient(
+    to left,
+    #859970 0%,
+    #25433c 50%,
+    #f5f1de 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 10s ease infinite;
+  display: inline-block;
+}
+
+/* ===========================================================
+   🌿 Betűtípus & Egyéb
+   =========================================================== */
+@font-face {
+  font-family: "TanNimbus";
+  src: url("../public/fonts/tan-nimbus.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
